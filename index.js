@@ -8,3 +8,10 @@ app.use(cors())
 
 require('./database/mongoose')
 
+const UserController = require('./api/users/controller/users.controller')
+const AuthController = require('./api/auth/controller/auth.controller')
+app.use([UserController, AuthController])
+
+app.listen(process.env.PORT, () => {
+    console.log(`Server is running on ${process.env.PORT}`)
+})
